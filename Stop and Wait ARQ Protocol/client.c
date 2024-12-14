@@ -19,12 +19,12 @@ void main(){
 	connect(clisoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
 	printf("\nClient waiting to receive...\n");
 	recv(clisoc,recvbuf,1024,0);
-	int n=recvbuf[0]-'0';
+	int n=atoi(recvbuf);
 	bzero(recvbuf,1024);
 	int count=1,flag=0;
 	while(1){
 		recv(clisoc,recvbuf,1024,0);
-		if((recvbuf[0]-'0')==count){
+		if(atoi(recvbuf)==count){
 			if(flag==1){
 				printf("\nFrame %d received\nAcknowledgement for frame %d sent\n",count-1,count-1);
 				if(count==n+1)
