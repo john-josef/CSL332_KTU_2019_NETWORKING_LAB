@@ -40,7 +40,7 @@ void main(){
 		else	
 			printf("\nFrame %d sent (again)",count);
 		if(recv(clisoc,recvbuf,1024,0)>0){
-			printf("\nAcknowledgent for frame %d received",recvbuf[0]-'0');
+			printf("\nAcknowledgent for frame %d received",atoi(recvbuf));
 			bzero(recvbuf,1024);
 			duplicate=0;
 			count++;
