@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/socket.h>
+#include <time.h>
 #include <arpa/inet.h>
-#include <stdlib.h>
+#include <sys/socket.h>
+#include <sys/time.h>
 
 void recv_send( int fd , int clisoc ){
     char recvbuf[1024],sendbuf[1024];
