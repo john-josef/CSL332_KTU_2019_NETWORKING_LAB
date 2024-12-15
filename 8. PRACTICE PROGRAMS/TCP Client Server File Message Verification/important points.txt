@@ -1,0 +1,22 @@
+char string[]="Hello My name is John";
+char *token=strtok(string," ");
+while(token!=NULL){
+    printf("%s\n",token);
+    token=strtok(NULL," ");
+}
+
+
+if(access(file,F_OK)!=0){
+    printf("\nRequested File Not Found!!\n");
+    exit(0);
+}
+
+while(fgets(buffer,1024,fp)){
+    printf("%s",buffer);
+    bzero(buffer,1024);
+}
+
+
+char hatewords[][15]={"kill","hate","murder","violence","abuse","attack","terror","assault","destroy",
+    "slaughter","curse","revenge","bully","harm","ruin","annihilate","injure","explode","brutal","wrath"};
+
