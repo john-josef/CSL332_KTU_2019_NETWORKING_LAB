@@ -1,0 +1,36 @@
+Use & symbol with fd_set variables always
+use integer socket fd value as such
+
+stdio
+unistd
+stdlib
+string
+time
+arpa/inet 
+sys/socket
+sys/time 
+
+( struct sockaddr * ) &seraddr
+
+
+fgets( buffer , 1024 , stdin )
+listen ( socket , 10 )
+socket( AF_INET , SOCK_STREAM , 0 )
+select( fdmax+1 , &fdset , NULL , NULL , NULL )
+
+
+recv( socket , buffer , 1024 , 0 )
+send( socket , buffer , 1024 , 0 )
+
+bind ( socket , ( struct sockaddr * ) seraddr , sizeof( struct sockaddr_in ) )
+connect ( socket , ( struct sockaddr * ) seraddr , sizeof( struct sockaddr_in ) )
+accept ( socket , ( struct sockaddr * ) cliaddr , &addrlen ) ------>  socklen_t addrlen = sizeof( struct sockaddr_in )
+
+
+-Inside function bodies, use appropriate spacing
+-Use \n while printing..connection established from client on port..., otherwise it wont be displayed
+
+
+-The server socket is used only for accepting connections
+-For sending and receiving data, client-specific sockets are used on server side code
+-For sending and receiving data, a client uses its own socket in the client side code
