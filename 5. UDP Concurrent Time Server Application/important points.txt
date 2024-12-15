@@ -1,0 +1,11 @@
+seraddr.sin_family=AF_INET             ( . instead of -> )
+bind(sersoc, (struct sockaddr *)&seraddr , sizeof(struct sockaddr_in));
+
+
+
+socklen_t addrlen=sizeof(struct sockaddr_in);
+recvfrom(sersoc,recvbuf,1024,0,(struct sockaddr *)&cliaddr,&addrlen);
+sendto(sersoc,sendbuf,1024,0,(struct sockaddr *)&cliaddr,addrlen);
+
+In receivefrom() use &addrlen
+In sendto() use addrlen for serverside, sizeof(struct sockaddr_in) for client side
