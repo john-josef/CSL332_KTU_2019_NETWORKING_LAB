@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <time.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 
 void recv_send( int i , fd_set *master , int fdmax , int sersoc ){
     char recvbuf[1024] , sendbuf[1024];
