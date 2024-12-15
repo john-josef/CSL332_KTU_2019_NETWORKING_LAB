@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <time.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 
 void writeFile(int clisoc){
     char buffer[1024];
@@ -25,13 +28,16 @@ void writeFile(int clisoc){
 }
 
 void main(){
+    int portno;
+    printf("Enter PORT NUMBER: ");
+    scnaf("%d",&portno);
     char file[1024];
     bzero(file,1024);
     struct sockaddr_in seraddr;
     int clisoc=socket(AF_INET,SOCK_STREAM,0);
     printf("\n[+] Client socket created..\n");
     seraddr.sin_family=AF_INET;
-    seraddr.sin_port=htons(4950);
+    seraddr.sin_port=htons(portno);
     connect(clisoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
     printf("\n[+] Client Connected to server\n");
     printf("\nEnter the name of the file: ");
