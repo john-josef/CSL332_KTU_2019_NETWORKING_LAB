@@ -1,0 +1,10 @@
+Server Side
+
+struct timeval timeout;
+timeout.tv_sec=1;
+setsockopt(clisoc,SOL_SOCKET,SO_RCVTIMEO,(struct timeval *)&timeout,sizeof(struct timeval));
+
+
+CLient Side
+
+srandom(time(NULL));
