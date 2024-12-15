@@ -1,9 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <stdlib.h>
+#include <time.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 
 void readFile(char file[],int clisoc){
     FILE *fp = fopen(file,"r");
@@ -16,6 +18,9 @@ void readFile(char file[],int clisoc){
 }
 
 void main(){
+    int portno;
+    printf("Enter PORT NUMBER: ");
+    scanf("%d",&portno);
     int clisoc,count=0;
     char file[1024],buffer[1024];
     bzero(file,1024);
@@ -26,8 +31,11 @@ void main(){
     int sersoc=socket(AF_INET,SOCK_STREAM,0);
     printf("[+] Server socket created\n");
     seraddr.sin_family=AF_INET;
-    seraddr.sin_port=htons(4950);
-    bind(sersoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
+    seraddr.sin_port=htons(portno);
+    if (bind(sersoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in)) != 0){
+        printf("Error in binding.. Try another PORT");
+        exit(0);
+    }
     printf("[+] Server socket bound\n");
     listen(sersoc,10);
     printf("[+] Server socket waiting for incoming connections....\n");
