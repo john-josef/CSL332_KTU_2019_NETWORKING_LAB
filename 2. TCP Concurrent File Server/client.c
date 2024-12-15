@@ -30,7 +30,7 @@ void writeFile(int clisoc){
 void main(){
     int portno;
     printf("Enter PORT NUMBER: ");
-    scnaf("%d",&portno);
+    scanf("%d",&portno);
     char file[1024];
     bzero(file,1024);
     struct sockaddr_in seraddr;
