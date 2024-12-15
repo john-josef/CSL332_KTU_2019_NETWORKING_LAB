@@ -1,0 +1,6 @@
+USE \n before and after every string ... even for strings sent through send() function
+USE send() "quit"
+(fgets(buffer,1024,fp))!=NULL
+
+char spid[6];
+sprintf(spid,"%d",getpid());
