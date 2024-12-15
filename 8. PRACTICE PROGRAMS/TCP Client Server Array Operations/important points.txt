@@ -1,0 +1,6 @@
+#include <math.h>  -> for sqrt() ...........Use gcc server.c -lm
+
+
+(int)a ->type conversion
+recv(clisoc,array,n*sizeof(int),0);   ->for receiving array of integer int array[n]
+send(clisoc,array,n*sizeof(int),0);   ->for sending array of integer int array[n]
