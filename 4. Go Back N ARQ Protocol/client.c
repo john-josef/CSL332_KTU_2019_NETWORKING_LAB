@@ -9,8 +9,8 @@
 
 void main(){
     int portno;
-	printf("Enter PORT NUMBER: ");
-	scanf("%d",&portno);
+    printf("Enter PORT NUMBER: ");
+    scanf("%d",&portno);
     srandom(time(NULL));
     char sendbuf[1024],recvbuf[1024];
     bzero(sendbuf,1024);
