@@ -9,3 +9,6 @@ sendto(sersoc,sendbuf,1024,0,(struct sockaddr *)&cliaddr,sizeof(struct sockaddr_
 
 In receivefrom() use &addrlen
 In sendto() use sizeof(struct sockaddr_in)
+
+SERVER SIDE - seraddr.sin_addr.s_addr = INADDR_ANY;
+CLIENT SIDE - seraddr.sin_addr.s_addr = inet_addr("127.0.0.1");
