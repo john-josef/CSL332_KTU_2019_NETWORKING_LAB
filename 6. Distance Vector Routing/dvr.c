@@ -1,4 +1,5 @@
 //INPUTS are provided as comments below the program
+
 #include <stdio.h>
 #include <stdlib.h>
 
