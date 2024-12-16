@@ -23,6 +23,7 @@ void main(){
     int clisoc=socket(AF_INET,SOCK_DGRAM,0);
     seraddr.sin_family=AF_INET;
     seraddr.sin_port=htons(portno);
+    seraddr.sin_addr.s_addr = inet_addr("127.0.0.1");
     socklen_t addrlen=sizeof(struct sockaddr_in);
     sendto(clisoc,sendbuf,1024,0,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
     printf("\nClient time sent to server.\n");
