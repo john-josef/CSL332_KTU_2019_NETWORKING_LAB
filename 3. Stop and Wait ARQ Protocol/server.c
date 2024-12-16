@@ -8,6 +8,9 @@
 #include <time.h>
 
 void main(){
+	int portno;
+	printf("Enter PORT NUMBER: ");
+	scanf("%d",&portno);
 	char sendbuf[1024],recvbuf[1024];
 	bzero(sendbuf,1024);
 	bzero(recvbuf,1024);
@@ -16,8 +19,11 @@ void main(){
 	struct sockaddr_in seraddr,cliaddr;
 	int sersoc=socket(AF_INET,SOCK_STREAM,0);
 	seraddr.sin_family=AF_INET;
-	seraddr.sin_port=htons(4950);
-	bind(sersoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
+	seraddr.sin_port=htons(portno);
+	if (bind(sersoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in))!=0){
+		printf("\nBINDING ERROR..Please try another PORT\n");
+		exit(0);
+	}
 	listen(sersoc,10);
 	printf("\nServer waiting for connections...\n");
 	socklen_t addrlen=sizeof(struct sockaddr_in);
