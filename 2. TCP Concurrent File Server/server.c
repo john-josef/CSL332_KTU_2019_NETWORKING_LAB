@@ -16,7 +16,6 @@ void readFile(char file[],int clisoc){
         bzero(buffer,1024);
     }
 }
-
 void main(){
     int portno;
     printf("Enter PORT NUMBER: ");
