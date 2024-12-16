@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+
 void main(){
     char buffer[1024],result[1024];
     bzero(buffer,1024);
