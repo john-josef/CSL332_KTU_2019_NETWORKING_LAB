@@ -1,6 +1,7 @@
-USE \n before and after every string ... even for strings sent through send() function
+USE \n before and after every string ... even for strings sent through send() function. Otherwise, it wont be displayed while printing.
 USE send() "quit"
-(fgets(buffer,1024,fp))!=NULL
+USE send() "exit"
+while((fgets(buffer,1024,fp))!=NULL)
 
 char spid[6];
 sprintf(spid,"%d",getpid());
