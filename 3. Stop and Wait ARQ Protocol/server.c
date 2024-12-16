@@ -16,6 +16,7 @@ void main(){
 	bzero(recvbuf,1024);
 	struct timeval timeout;
 	timeout.tv_sec=1;
+        timeout.tv_usec=0;
 	struct sockaddr_in seraddr,cliaddr;
 	int sersoc=socket(AF_INET,SOCK_STREAM,0);
 	seraddr.sin_family=AF_INET;
@@ -36,7 +37,7 @@ void main(){
 	sprintf(sendbuf,"%d",n);
 	send(clisoc,sendbuf,1024,0);
 	bzero(sendbuf,1024);
-	int count=1,duplicate=0,initial=0;
+	int count=1,duplicate=0;
 	while(count<=n){
 		sprintf(sendbuf,"%d",count);
 		send(clisoc,sendbuf,1024,0);
