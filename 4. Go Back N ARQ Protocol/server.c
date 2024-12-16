@@ -9,8 +9,8 @@
 
 void main(){
     int portno;
-	printf("Enter PORT NUMBER: ");
-	scanf("%d",&portno);
+    printf("Enter PORT NUMBER: ");
+    scanf("%d",&portno);
     struct timeval timeout;
     timeout.tv_sec=2;
     char sendbuf[1024],recvbuf[1024];
