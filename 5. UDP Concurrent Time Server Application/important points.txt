@@ -1,7 +1,9 @@
 seraddr.sin_family=AF_INET             ( . instead of -> )
 bind(sersoc, (struct sockaddr *)&seraddr , sizeof(struct sockaddr_in));
 
-
+time_t t;
+time(&t);
+strcpy(sendbuf,ctime(&t));
 
 socklen_t addrlen=sizeof(struct sockaddr_in);
 recvfrom(sersoc,recvbuf,1024,0,(struct sockaddr *)&cliaddr,&addrlen);
