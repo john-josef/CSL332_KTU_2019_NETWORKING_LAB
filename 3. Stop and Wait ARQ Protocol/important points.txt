@@ -8,3 +8,4 @@ setsockopt(clisoc,SOL_SOCKET,SO_RCVTIMEO,(struct timeval *)&timeout,sizeof(struc
 CLient Side
 
 srandom(time(NULL));
+sleep(1+(rand()%4));
