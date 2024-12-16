@@ -7,6 +7,7 @@ atoi(recvbuf);
 
 struct timeval timeout;
 timeout.tv_sec=1;
+timeout.tv_usec=0;
 setsockopt(clisoc,SOL_SOCKET,SO_RCVTIMEO,(struct timeval *)&timeout,sizeof(struct timeval));
 
 
