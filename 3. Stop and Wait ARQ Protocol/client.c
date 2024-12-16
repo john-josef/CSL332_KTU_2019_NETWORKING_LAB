@@ -8,6 +8,9 @@
 #include <time.h>
 
 void main(){
+	int portno;
+	printf("Enter PORT NUMBER: ");
+	scanf("%d",&portno);
 	char recvbuf[1024],sendbuf[1024];
 	bzero(recvbuf,1024);
 	bzero(sendbuf,1024);
@@ -15,7 +18,7 @@ void main(){
 	struct sockaddr_in seraddr;
 	int clisoc=socket(AF_INET,SOCK_STREAM,0);
 	seraddr.sin_family=AF_INET;
-	seraddr.sin_port=htons(4950);
+	seraddr.sin_port=htons(portno);
 	connect(clisoc,(struct sockaddr *)&seraddr,sizeof(struct sockaddr_in));
 	printf("\nClient waiting to receive...\n");
 	recv(clisoc,recvbuf,1024,0);
