@@ -1,3 +1,8 @@
+
+if(recv(clisoc,recvbuf,1024,0)>0)
+atoi(recvbuf);
+
+
     Server Side
 
 struct timeval timeout;
