@@ -18,6 +18,7 @@ void main(){
     int sersoc=socket(AF_INET,SOCK_DGRAM,0);
     seraddr.sin_family=AF_INET;
     seraddr.sin_port=htons(portno);
+    seraddr.sin_addr.s_addr = INADDR_ANY;
     if(bind(sersoc, (struct sockaddr *)&seraddr , sizeof(struct sockaddr_in))!=0){
         printf("\nBINDING ERROR..Try a different PORT\n");
         exit(0);
