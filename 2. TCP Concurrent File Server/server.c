@@ -46,9 +46,9 @@ void main(){
         if((child=fork())==0){
             recv(clisoc,file,1024,0);
             strcpy(buffer,"\nServer PROCESS ID: ");
-            char spid[6];
-            sprintf(spid,"%d",getpid());
-            strcat(buffer,spid);
+            char serverpid[1024];
+            sprintf(serverpid,"%d",getpid());
+            strcat(buffer,serverpid);
             strcat(buffer,"\n");
             send(clisoc,buffer,1024,0);
             if(access(file,F_OK)==0){
