@@ -51,7 +51,7 @@ void main(){
     while(1){
         if(recv(clisoc,recvbuf,1024,0)>0){
             printf("\nAcknowledgement for Frame %d received",atoi(recvbuf));
-            if(atoi(recvbuf)==n)
+            if(count-window==n)
                 break;
             if(count<=n){
                 printf("\nSending Frame %d",count);
@@ -73,6 +73,8 @@ void main(){
                     send(clisoc,sendbuf,1024,0);
                     bzero(sendbuf,1024);
                 }
+                else 
+                    count++;
             }
         }
         bzero(recvbuf,1024);
