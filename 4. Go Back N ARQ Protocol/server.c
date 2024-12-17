@@ -13,6 +13,7 @@ void main(){
     scanf("%d",&portno);
     struct timeval timeout;
     timeout.tv_sec=2;
+    timeout.tv_usec=0;
     char sendbuf[1024],recvbuf[1024];
     bzero(sendbuf,1024);
     bzero(recvbuf,1024);
